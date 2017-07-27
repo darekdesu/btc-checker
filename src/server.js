@@ -1,8 +1,9 @@
 'use strict';
 
 const { isAveragePriceBigDifference, getCurrentAveragePrice, getPreviousAveragePrice, saveCurrentAveragePrice } = require('./utils/averagePrice');
+const mailer = require('./utils/mailer');
 
-const BIG_DIFFERENCE = 50;
+const BIG_DIFFERENCE = 10;
 
 (async () => {
     const currentAveragePrice = await getCurrentAveragePrice();
@@ -12,7 +13,10 @@ const BIG_DIFFERENCE = 50;
     console.log('previousAveragePrice', previousAveragePrice);
 
     if (isAveragePriceBigDifference(previousAveragePrice, currentAveragePrice, BIG_DIFFERENCE)) {
-        saveCurrentAveragePrice(currentAveragePrice);
+        await saveCurrentAveragePrice(currentAveragePrice);
+
+        const isAveragePriceUp = currentAveragePrice > previousAveragePrice;
+        await mailer(currentAveragePrice, isAveragePriceUp);
 
         console.log('There is big BTC difference!');
         return;
