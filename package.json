@@ -6,6 +6,7 @@
   },
   "private": true,
   "dependencies": {
+    "cron": "1.2.1",
     "got": "7.1.0",
     "nodemailer": "4.0.1"
   },

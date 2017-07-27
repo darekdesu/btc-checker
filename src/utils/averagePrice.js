@@ -25,8 +25,8 @@ const getCurrentAveragePrice = () => got(AVERAGE_PRICE_API_URL)
     .catch(() => null);
 
 
-const isAveragePriceBigDifference = (previousAveragePrice, currentAveragePrice, bigDifference) => {
-    if (currentAveragePrice > previousAveragePrice + bigDifference || currentAveragePrice < previousAveragePrice - bigDifference) {
+const isAveragePriceBigDifference = (previousAveragePrice, currentAveragePrice, bigPriceDifference) => {
+    if (currentAveragePrice > previousAveragePrice + bigPriceDifference || currentAveragePrice < previousAveragePrice - bigPriceDifference) {
         return true;
     }
 
