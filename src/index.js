@@ -3,7 +3,7 @@
 const { isAveragePriceBigDifference, getCurrentAveragePrice, getPreviousAveragePrice, saveCurrentAveragePrice } = require('./utils/averagePrice');
 const mailer = require('./utils/mailer');
 
-const BIG_DIFFERENCE = 10;
+const BIG_DIFFERENCE = 100;
 
 (async () => {
     const currentAveragePrice = await getCurrentAveragePrice();
