@@ -1,6 +1,6 @@
 ## BTC-Checker
 
-This is a Bitcoin average price checker.
+This is a Bitcoin average market price checker.
 
 It checks if bitcoin averange price in PLN changed more than X PLN at every minute past every hour from 8 through 22.
 
