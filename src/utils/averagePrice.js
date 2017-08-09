@@ -11,6 +11,7 @@ const saveCurrentAveragePrice = (averagePrice) => fs.writeFileSync(AVERAGE_PRICE
 const getPreviousAveragePrice = () => Promise.resolve()
     .then(() => fs.readFileSync(AVERAGE_PRICE_FILE_PATH, 'utf8'))
     .then(averagePrice => parseFloat(averagePrice))
+    .then(parsedAveragePrice => !Number.isNaN(parsedAveragePrice) ? parsedAveragePrice : 0)
     .catch(() => 0);
 
 const getCurrentAveragePrice = () => got(AVERAGE_PRICE_API_URL)
